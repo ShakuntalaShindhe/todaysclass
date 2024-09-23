@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Oops</h4>
+    <p>Object Oriented programming(Oop) is a progarmming paradigm that uses objects,which
+  can contain data in the form of fields (often known as properties or attibute) and code
+  in the form of procedures(often known as methods).Javascript is versatile language that
+  supports OOP principles throgh its prototype based inheritance system.</p>
+    <p>A class in Javascript is a blueprint for creating objects.it defines a set of
+        properties and methods that objects created from the class will have.
+    </p>
+</body>
+<script>
+//basic example of class
+    class Javascript{
+        method1(){
+            console.log('example of method1')
+        }
+        method2(){
+            console.log('example of method2')
+        }
+    }
+    let method_result=new Javascript()
+    method_result.method1()
+    method_result.method2()
+
+//Class with constructors
+    class Vehical{
+        constructor(name){
+            //object instance
+            this.name=name
+        }
+        //create a method
+        display(){
+            console.log(`${this.name} is driving`)
+
+        }
+    }
+    let car=new Vehical('john')
+    car.display()
+
+//2.
+   class Employee{
+    constructor(id,name,salary){
+        this.id=id
+        this.name=name
+        this.salary=salary
+    }
+    display(){
+        console.log(`employee id is ${this.id} and name is ${this.name} and salary is ${this.salary}`)
+   }
+   }
+   let details=new Employee(100,'john',50000)
+   details.display()
+
+//Updating the salary
+class Emp{
+    constructor(id,name,salary){
+        this.id=id
+        this.name=name
+        this.salary=salary
+    }
+    display(){
+        console.log(`employee id is ${this.id} and name is ${this.name} and salary is ${this.salary}`)
+       }
+    updateSalary(newSalary){
+        this.salary=newSalary
+    }
+   }
+   let emp=new Emp(101,'sam',30000)
+   emp.display()
+   emp.updateSalary(290000)
+   emp.display
+</script>
+</html>
