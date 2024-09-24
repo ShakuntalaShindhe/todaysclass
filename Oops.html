@@ -1,80 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h4>Oops</h4>
     <p>Object Oriented programming(Oop) is a progarmming paradigm that uses objects,which
-  can contain data in the form of fields (often known as properties or attibute) and code
-  in the form of procedures(often known as methods).Javascript is versatile language that
-  supports OOP principles throgh its prototype based inheritance system.</p>
+        can contain data in the form of fields (often known as properties or attibute) and code
+        in the form of procedures(often known as methods).Javascript is versatile language that
+        supports OOP principles throgh its prototype based inheritance system.</p>
     <p>A class in Javascript is a blueprint for creating objects.it defines a set of
         properties and methods that objects created from the class will have.
     </p>
+    <p>Object:Object in Javascript are complex data types that can store data and have associated
+        behavior through properties and methods
+    </p>
+    <p id="demo"></p>
+    <p>Inheritance: Inheritance is a mechanism that allows a class(subclass/derived class) to 
+        inherit properties and methods from another class(superclass/base class).It promotes code reuse
+        and establish an "is-a" relationship between classes
+    </p>
+    <p>Polymorphism:Polymorphism allows objects of diffent classes to be treated as objects of a common base class</p>
 </body>
 <script>
-//basic example of class
-    class Javascript{
-        method1(){
+    //basic example of class
+    class Javascript {
+        method1() {
             console.log('example of method1')
         }
-        method2(){
+        method2() {
             console.log('example of method2')
         }
     }
-    let method_result=new Javascript()
+    //new keyword is the instance of class(means:holding multiple values)
+    let method_result = new Javascript()
     method_result.method1()
     method_result.method2()
 
-//Class with constructors
-    class Vehical{
-        constructor(name){
+    //Class with constructors
+    /*class Vehical {
+        constructor(name) {
             //object instance
-            this.name=name
+            this.name = name
         }
         //create a method
-        display(){
+        display() {
             console.log(`${this.name} is driving`)
 
         }
     }
-    let car=new Vehical('john')
-    car.display()
+    let car = new Vehical('john')
+    car.display()*/
 
-//2.
-   class Employee{
-    constructor(id,name,salary){
-        this.id=id
-        this.name=name
-        this.salary=salary
+    //2.
+    class Employee {
+        constructor(id, name, salary) {
+            this.id = id
+            this.name = name
+            this.salary = salary
+        }
+        display() {
+            console.log(`employee id is ${this.id} and name is ${this.name} and salary is ${this.salary}`)
+        }
+    }
+    let details = new Employee(100, 'john', 50000)
+    details.display()
+
+    //Updating the student id here
+    class Student {
+        constructor(id, name) {
+            this.id = id
+            this.name = name
+        }
+        display() {
+            console.log(`student id is ${this.id} and name is ${this.name}`)
+        }
+        updateId(newId) {
+            this.id = newId
+        }
+    }
+    let detail = new Student(101, 'sam')
+    detail.display()
+    detail.updateId(105)
+    detail.display()
+
+    //area of the rectangle
+    /*class Area{
+      constructor(l,b){
+          this.l=l;
+          this.b=b;
+      }
+      area_rect(){
+          // return this.l*this.b;
+          console.log(`Area is ${this.l * this.b}`)
+      }
+    }
+    let result=new Area(2,4)
+    result.area_rect()
+  //   console.log(area_rect)*/
+
+    //Object
+    /* person = {
+        name: 'John',
+        age: 22,
+        address: 'Hyderabad',
+        country:{
+            city:'Benagalore',
+            pincode:234597,
+        },
+        greet:function(){
+            console.log(`hello ${this.name} and ${this.age}`)
+        }
+    }
+    console.log(person)
+    console.log(person.address)
+    console.log(person.country.city)//dotted notation
+    console.log(person["age"])     //bracket notation
+    console.log(person["country"])
+    document.getElementById('demo').innerHTML=JSON.stringify(person)
+    person.greet()*/
+
+//Inheritance
+
+/*class Vehical{
+    constructor(color,brand){
+        this.color=color;
+        this.brand=brand;
+    }
+    start(){
+        console.log(`car color is ${this.color} and brand ${this.brand}`)
+    }
+
+}
+class Car extends Vehical{
+        constructor(brand,model){
+            super('red',brand);
+            this.model=model;
+        }
+        display(){
+            console.log(`brand is ${this.brand} and model is ${this.model}`)
+        }
+    }
+    let obj=new Car('BMW',2024)
+    obj.start()
+    obj.display()*/
+
+//Polymorphism:
+/*class Vehical{
+    move(){
+        console.log('Vehical is moving')
+    }
+}
+class Car extends Vehical{
+    move(){
+        console.log('car is moving')
+    }
+}
+class Airplane extends Vehical{
+    move(){
+        console.log('Airplane is moving')
+    }
+}
+let Obj=new Car()
+let Obj1=new Airplane()
+let Obj2=new Vehical()
+Obj.move()
+Obj1.move()
+Obj2.move()*/
+
+
+//
+class Animals{
+    constructor(name,color,type){
+        this.name=name;
+        this.color=color;
+        this.type=type;
+    }
+    detail(){
+        console.log(`Name is ${this.name} and color is ${this.color} and ${this.type}`)
+    }
+}
+class Animal extends Animals{
+    constructor(name,liveIn){
+        super(name,"Black","Herbi");
+        this.liveIn=liveIn;
     }
     display(){
-        console.log(`employee id is ${this.id} and name is ${this.name} and salary is ${this.salary}`)
-   }
-   }
-   let details=new Employee(100,'john',50000)
-   details.display()
-
-//Updating the salary
-class Emp{
-    constructor(id,name,salary){
-        this.id=id
-        this.name=name
-        this.salary=salary
+        console.log(`Name is ${this.name} and Live on ${this.liveIn}` )
     }
-    display(){
-        console.log(`employee id is ${this.id} and name is ${this.name} and salary is ${this.salary}`)
-       }
-    updateSalary(newSalary){
-        this.salary=newSalary
-    }
-   }
-   let emp=new Emp(101,'sam',30000)
-   emp.display()
-   emp.updateSalary(290000)
-   emp.display
+}
+let Obje=new Animal('Lion','Land')
+Obje.detail()
+Obje.display()
 </script>
+
 </html>
