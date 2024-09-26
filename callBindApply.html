@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+
+<body>
+    <h4>Call,Bind,Apply</h4>
+    <p>Call:Invokes the function immediately and passes arguments one by one;</p>
+    <p>apply:Invoke the function immediately and passes an arguments in the form of array</p>
+    <p>bind:Returns a new function with this and arguments bound to the provided values,
+        but does not invoke it immediately.</p>
+</body>
+<script>
+    //call
+    let person1 = {
+        name: 'john',
+        age: 12,
+    }
+    let person2 = {
+        name: 'harry',
+        age: 17,
+    }
+    function Persons(greet) {
+        console.log(` iam ${this.name} and my age is ${this.age} and ${greet}`)
+    }
+    Persons.call(person1, 'hi')
+    Persons.call(person2, "hello")
+
+    //apply
+    let person3 = {
+        firstName: 'Harry',
+        lastName: 'will'
+    }
+    let person4 = {
+        firstName: 'Shakuntala',
+        lastName: 'shindhe'
+    }
+    function printDetails(job, country) {
+        console.log(`hii my name is ${this.firstName} ${this.lastName} and my occupation is ${job} and iam from ${country}`)
+    }
+    printDetails.apply(person3, ['Doctor', 'UK'])
+    printDetails.apply(person4, ['SoftwareEngg', 'India'])
+
+    //bind:here we are creating diffrent objects and creating one more object inside it we are creating 
+    //one function with Function name:function() and there we are returning the diffrent objects which we are 
+    //created before with this keyword at last we are creating one variable with that we are calling
+    //our last
+    let person5 = {
+        fName: 'john',
+        lName: 'doe'
+    }
+    let person6 = {
+        fName: 'harry',
+        lName: 'will'
+    }
+    let person = {
+        fName: 'sheshi',
+        lName: 'sindhe',
+        sayHi: function () {
+            return ` hii iam ${this.fName} ${this.lName}`
+        }
+    }
+    let obj1 = person.sayHi.bind(person5)
+    let obj2 = person.sayHi.bind(person6)
+    console.log(obj1())
+    console.log(obj2())
+</script>
+
+</html>

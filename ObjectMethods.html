@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h4>Object Methods</h4>
+    <p id="demo"></p>
+</body>
+<script>
+    /* let person={
+         name:'john',
+         age:21,
+         address:'Telengana'
+     }
+     document.getElementById('demo').innerHTML=JSON.stringify(person)
+     console.log(person.address)
+     document.getElementById('demo').innerHTML=Object.values(person)
+     document.getElementById('demo').innerHTML=Object.keys(person)
+     */
+
+    let person = {
+        name: 'john',
+        age: 21,
+        address: 'Bengaluru'
+    }
+    console.log(person)
+    document.getElementById('demo').innerHTML = JSON.stringify(person)
+    //add any item 
+    person.country = 'india'
+    document.getElementById('demo').innerHTML = JSON.stringify(person)
+
+    //delete any item
+    delete person.age
+    document.getElementById('demo').innerHTML = JSON.stringify(person)
+
+    //Accessor properties
+    //get method:getter method is used to get any value from an object
+    let student = {
+        firstName: 'Harry',
+        grade: 12,
+        get getName() {
+            return `${this.firstName} is the first name of the student`
+        }
+    }
+    console.log(student.getName)
+
+    //set method:setter method is used to set any value or update any value in an object
+    let student1 = {
+        firstName: 'Sam',
+        grade: 12,
+        set Grade(updateGrade) {
+            this.grade = updateGrade
+        }
+    }
+    console.log(student1)
+    student1.Grade = 13
+    console.log(student1)
+
+    //Object prototype:Object prototype in js allows the object to inherit the properties 
+    //from other object
+    function Person(name, age, address) {
+        this.name = name
+        this.age = age;
+        this.address = address;
+    }
+    Person.prototype.strat = function () {
+        console.log(`${this.name} and age is ${this.age} and address is ${this.address}`)
+    }
+    let obj = new Person('john', 34, 'IND')
+    obj.strat()
+
+    //2.
+    function Vehical(brand, color, mileage) {
+        this.brand = brand;
+        this.color = color;
+        this.mile = mileage;
+    }
+    Vehical.prototype.display = function () {
+        console.log(`Brand is ${this.brand} and color is ${this.color} give mile ${this.mileage}`)
+    }
+    let res = new Vehical('BMW', 'red', 120)
+    res.display()
+
+    //hasOwnProperty:it is going to check wheather a particular item is the object or not
+    //if it is present returns true else return false
+    let course = {
+        name: 'fsd',
+        othercourse: 'ds'
+    }
+    console.log(course.hasOwnProperty('name'))
+    console.log(course.hasOwnProperty('Fname'))
+    console.log(course.hasOwnProperty('othercourse'))
+
+    //freeze: freeze() method in js is used to freeze an object,making it immutable
+    let numbers = [1, 2, 3, 4]
+    Object.freeze(numbers)
+    console.log(numbers)
+    // numbers.push(5)
+    // console.log(numbers)
+    numbers[0] = 0
+    console.log(numbers)
+    // numbers.pop(2)
+    // console.log(numbers)
+
+//setPrototypeOf method
+    let fruits={
+        name:'apple',
+        price:200
+    }
+    let Veg={
+        vegName:'tomato',
+        vegPrice:40,
+    }
+    Object.setPrototypeOf(Veg,fruits)
+    console.log(Veg.name)
+    // Object.setPrototypeOf(fruits,Veg)
+    // console.log(fruits.vegName)
+</script>
+
+</html>
