@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>callBack</h4>
+    <p>In Javascript,a callback is a function passed as an argumnets to another function.
+        The purpose of a callback is to be executed later,after the complietion of an
+        asynchronous operation or a certain task.
+    </p>
+    <p>callback hell,also known as the "pyramid of Doom" occurs when you have multiple nested callbacks,making
+        the code hard to read and maintain.This often happens in asynchronous Javascript,especially when dealing
+        with nested callBacks for I/O operation
+    </p>
+</body>
+<script>
+    //callback
+    /*function greet(cb){
+        console.log('hello from first func')
+        cb()
+    }
+    function sayHi(){
+        console.log('hii from second function')
+    }
+    greet(sayHi)*/
+
+    //with arguments
+    function greeting(name,cb){
+        console.log(`hello ${name} from frist func`)
+        cb()
+    }
+    function sayHello(){
+        console.log('hello from second func')
+    }
+    greeting('Bob',sayHello)
+
+    //with settimeout
+   /* function Hello(cb){
+    setTimeout(()=>{
+        console.log('example with settimeout')
+        cb()
+    },2000)
+    }
+    function example(){
+        console.log('some msg')
+    }
+    Hello(example)*/
+
+//Callback Hell
+   /* function callbackHell(callBack){
+        let i=1;
+        callBack(i);
+        i++
+        setTimeout(()=>{
+            callBack(i)
+            i++;
+            setTimeout(()=>{
+                callBack(i);
+                i++;
+                setTimeout(()=>{
+                    callBack(i)
+                    i++;
+                    setTimeout(()=>{
+                        callBack(i);
+                        i++
+                    },4000)
+                },3000)
+            },2000)
+        },1000)
+    }
+    function printDetails(i){
+        alert('value of i is ' +i)
+    }
+    callbackHell(printDetails)*/
+</script>
+</html>
