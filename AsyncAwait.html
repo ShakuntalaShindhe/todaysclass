@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>async await</h4>
+    <p>async/await is a feature in Javascript that simplifies the use of promises and makes
+        asynchronous code look and behave more like synchronous code.
+    </p>
+</body>
+<script>
+    const example=async()=>{
+        const result=await "Hello World!";
+        console.log(result)
+    }
+    console.log('hii')
+    example()
+    console.log(10)
+ 
+//async and await with function
+async function AsynOp(){
+    return "Example of async/await with function"
+}
+async function asynOpertaion(){
+    let res=await AsynOp()
+    console.log(res)
+}
+asynOpertaion();
+</script>
+</html>
