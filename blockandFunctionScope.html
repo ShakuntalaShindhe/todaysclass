@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Block and Function scope</h3>
+    <p>Block scope refres to the scope of variables within a block,which is usually denoted
+        by curly braces{}.Unlike var,variables declared with let and const are block scope.
+        this means that they are only accessible within the block in which the are defined
+    </p>
+    <p>Function scope:function scope is accessing the variable within the function is aclled as 
+        function scope.var is function scope
+    </p>
+</body>
+<script>
+    //block scope
+    function blockscope(){
+        var a=10;
+        if(true){
+            let b=20
+            const c=30
+            console.log('a',a)
+            console.log('b',b)
+            console.log('c',c)
+        }
+       
+        // console.log('a outside of block',a)//result
+        // console.log('b outside of block',b)//reference error
+        // console.log('c outside of block',c)//reference error
+    }
+    blockscope()
+
+
+//function scope:
+     function functionScope(){
+        var x=12;
+        if(true){
+            var y=20;
+            console.log('x',x)
+        }
+        console.log('y',y)
+     }
+     functionScope()
+     console.log(typeof y) //undefined
+</script>
+</html>

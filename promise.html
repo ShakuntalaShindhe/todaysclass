@@ -90,5 +90,16 @@ const pr2=new Promise((reso,reje)=>{
 })
 Promise.race([pr1,pr2])
 .then(val=>console.log(val))
+
+//4.Promise.allSettle--->This returned promise fulfills when all of the input's promises settle (including when an empty iterable is passed), 
+
+const pro1=Promise.resolve(34);
+const pro2=new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        reject('rejected msg')
+    },3000)
+})
+Promise.allSettled([pro1,pro2])
+.then(result=>result.forEach((resu)=>console.log(resu.status)))
 </script>
 </html>
