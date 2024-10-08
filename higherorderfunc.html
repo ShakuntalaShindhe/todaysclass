@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Higher Order Function</h3>
+    <p>A Higher Order function in Javascript is a function that take one or more functions as arguments or return
+        a function as its result
+    </p>
+</body>
+<script>
+    //higher order function
+    function x(cb) {
+        return cb()
+    }
+    function y() {
+        return "hello from y"
+    }
+    console.log(x(y))
+
+    //add and multiply
+    function operator(cb, x, y) {
+        return cb(x, y);
+    }
+    function add(x, y) {
+        return x + y;
+    }
+    function multiply(x, y) {
+        return x * y;
+    }
+    console.log(operator(add, 5, 9))
+    console.log(operator(multiply, 3, 4))
+</script>
+
+</html>

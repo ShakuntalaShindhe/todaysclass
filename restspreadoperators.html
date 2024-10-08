@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Example of rest and spread operators</h3>
+    <p>Rest parameter allows you to represent an indefinite number of arguments as an array</p>
+    <p>The spread operator is used to expand elements of an array or properties of an object</p>
+</body>
+<script>
+    //rest operator
+    const[a,b,c,d,...details]=[1,2,3,4,5,6,7,8,9]
+    console.log('a',a)
+    console.log('b',b)
+    console.log('c',c)
+    console.log('d',d)
+    console.log('details',details)
+
+    //rest with object:...some name represents the rest of the values
+    let person={
+        name:'john',
+        age:21,
+        address:'Hyd',
+        phone:648759290
+    }
+    const{name,...information}=person
+    console.log(name)
+    console.log(information)
+
+//rest with function
+    function greet(...name){
+        console.log('Hello'+name)
+    }
+    greet('john','sam','harry')
+
+//Spread Operator
+   const num1=[1,2,3]
+   const num2=[4,5,6]
+   const num=[...num1,...num2]
+   console.log(num)
+   //if u want to add more items inside num1 then
+   const more_num1=[...num1,6,7,8,9]
+   console.log(more_num1)
+
+//spread with object
+   let users={
+    name:'john',
+    age:12
+   }
+   let values={
+    a:1,
+    b:3,
+    c:4
+   }
+   const object={...users,...values}
+   console.log(object)
+
+   //if u wanted to add more details inside the user then
+   const more_users={...users,city:'hyd',country:'india'}
+   console.log(more_users)
+</script>
+</html>
