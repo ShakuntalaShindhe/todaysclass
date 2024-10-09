@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Shallow and Deep Copy</h3>
+    <p>Shallow copying creates a new object with reference to the same memory location
+        as the original object.</p>
+</body>
+<script>
+    /*let person={
+        name:'john',
+        age:12,
+        address:'hyd'
+    }
+  console.log('Original Object',person)*/
+   /* let newPerson=person
+    console.log('newPerson',newPerson)
+    newPerson.name='harry'
+    newPerson.age=13
+    console.log('original obj after some modification',person)
+    console.log('newPerson after modification',newPerson)*/
+
+    //to overcome this problem we have a method called shallow copy 
+    //1.Object.assign //2.spread operator
+ //Using Object.assign method
+  /*let newPerson=Object.assign({},person)
+  console.log('New person',newPerson)
+  newPerson.name='Harry'
+  newPerson.age=14
+  console.log('Original person after modification',person)
+  console.log('New person after modification',newPerson)*/
+
+//using a spread Operator
+   /*let newPerson={...person}
+   console.log('newPerson',newPerson)
+   newPerson.name='harry',
+   newPerson.age=15
+   console.log('Original object after modification',person)
+   console.log('newPerson after modification',newPerson)*/
+//shallow copy will not work with nested object
+let person={
+    name:'john',
+    age:12,
+    address:{
+        city:'hyd',
+        country:'India'
+    }
+}
+console.log('Original object',person)
+/*let newPerson={...person}
+console.log('New person',newPerson)
+newPerson.address.city='Bangalore'
+console.log('Original after modification',person)
+console.log('new person after modification',newPerson)*/
+
+//To overcome this problem of nested object copying we have method called deep copy
+//deep copy:JSON.parse(JSON.sttingify()) method
+let newPerson=JSON.parse(JSON.stringify(person))
+console.log('new person',newPerson)
+newPerson.address.city='Bengaluru'
+console.log('Original object after modification',person)
+console.log('New Person after modification',newPerson)
+</script>
+</html>

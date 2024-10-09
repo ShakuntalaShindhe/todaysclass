@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Local Strorage and session storage</h3>
+    <p>local storage:data stored in local strorage persists even when the browser
+        is closed and reopened.It remains until explicitly cleared by the user or the web application
+        Localstrorage is suitable for storing data that needs to be persistent across
+        multiple sessions
+    </p>
+    <p>Session strorage:Data stored in sessionStorage is only available for the duration
+        of the page session.If the user closes the tab or the browser , the data is cleared
+    </p>
+</body>
+<script>
+    //local Storage
+    /*//set
+       localStorage.setItem('username','John')
+    
+    //get
+       let user=localStorage.getItem('username')
+       console.log(user)
+    //remove
+    localStorage.removeItem('username')
+    //clear:it clears the complete data
+    localStorage.clear()
+    */
+/*localStorage.setItem('username', 'shakuntala')
+    localStorage.setItem('password', 'Shakuntala@123')
+    let userInfo = localStorage.getItem('username')
+    console.log(userInfo)
+    localStorage.removeItem('username')
+    localStorage.removeItem('password')*/
+
+//Session storage
+    sessionStorage.setItem('username','shakuntala')
+
+    //to get the user info get method
+    let userinfo=sessionStorage.getItem('user')
+    console.log(userinfo)
+
+    sessionStorage.removeItem('user')
+    sessionStorage.clear()
+
+</script>
+
+</html>
